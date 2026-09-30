@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "language": "sr",
+  "normalization": "sr-Latn",
+  "categories": {
+    "pragmatic": [
+      {"pattern": "možda", "kind": "epistemic", "weight": 0.8},
+      {"pattern": "čini se", "kind": "epistemic", "weight": 0.9},
+      {"pattern": "po mom mišljenju", "kind": "stance", "weight": 1.0},
+      {"pattern": "razumem poentu, ali", "kind": "softener", "weight": 1.0}
+    ],
+    "disagreement": [
+      {"pattern": "ne slažem se", "kind": "direct", "weight": 1.0},
+      {"pattern": "se ne slažem", "kind": "direct", "weight": 1.0},
+      {"pattern": "to nije tačno", "kind": "direct", "weight": 1.0},
+      {"pattern": "to ne sledi", "kind": "direct", "weight": 1.0},
+      {"pattern": "nisam siguran da", "kind": "mitigated", "weight": 0.8}
+    ],
+    "affiliation": [
+      {"pattern": "slažem se", "kind": "acknowledgement", "weight": 0.9},
+      {"pattern": "razumem", "kind": "acknowledgement", "weight": 0.7},
+      {"pattern": "dobro zapažanje", "kind": "support", "weight": 1.0},
+      {"pattern": "u tvom argumentu", "kind": "reference", "weight": 1.0}
+    ],
+    "variant": [
+      {"pattern": "lepo vreme", "kind": "ekavian", "weight": 1.0},
+      {"pattern": "lijepo vrijeme", "kind": "ijekavian", "weight": 1.0}
+    ]
+  }
+}

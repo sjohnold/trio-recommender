@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "categories": {
+    "modal": [
+      {"pattern": "might", "kind": "epistemic-modal", "weight": 1.0},
+      {"pattern": "could be", "kind": "epistemic-modal", "weight": 1.0},
+      {"pattern": "could have", "kind": "epistemic-modal", "weight": 1.0},
+      {"pattern": "could you", "kind": "request-modal", "weight": 1.0}
+    ],
+    "stance": [
+      {"pattern": "i think", "kind": "initial-frame", "weight": 0.7},
+      {"pattern": "i suspect", "kind": "initial-frame", "weight": 0.9},
+      {"pattern": "in my view", "kind": "initial-frame", "weight": 1.0}
+    ],
+    "disagreement": [
+      {"pattern": "i disagree", "kind": "phrase", "weight": 1.0},
+      {"pattern": "that is incorrect", "kind": "phrase", "weight": 1.0},
+      {"pattern": "that does not follow", "kind": "phrase", "weight": 1.0}
+    ],
+    "softener": [
+      {"pattern": "well,", "kind": "discourse-initial", "weight": 0.4},
+      {"pattern": "i see the point, but", "kind": "frame", "weight": 1.0},
+      {"pattern": "i am not sure that", "kind": "frame", "weight": 0.9}
+    ],
+    "intensifier": [
+      {"pattern": "clearly", "kind": "token", "weight": 0.8},
+      {"pattern": "definitely", "kind": "token", "weight": 1.0},
+      {"pattern": "absolutely", "kind": "token", "weight": 1.0}
+    ],
+    "causal": [
+      {"pattern": "because", "kind": "token", "weight": 1.0},
+      {"pattern": "therefore", "kind": "token", "weight": 1.0},
+      {"pattern": "the reason is", "kind": "phrase", "weight": 1.0}
+    ],
+    "analogy": [
+      {"pattern": "this is like", "kind": "phrase", "weight": 0.8},
+      {"pattern": "imagine", "kind": "token", "weight": 0.8},
+      {"pattern": "by analogy", "kind": "phrase", "weight": 1.0}
+    ],
+    "affiliation": [
+      {"pattern": "fair point", "kind": "phrase", "weight": 1.0},
+      {"pattern": "i understand", "kind": "phrase", "weight": 0.8},
+      {"pattern": "your argument", "kind": "reference", "weight": 1.0}
+    ]
+  }
+}

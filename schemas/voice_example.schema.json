@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trio.local/schemas/voice_example.schema.json",
+  "x-schema-version": "1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "language", "role", "stats", "alignment", "topic", "text",
+    "source_kind", "review_status", "real_person_based", "machine_translated"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"},
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "script", "variant"],
+      "properties": {
+        "language": {"enum": ["ru", "en", "sr"]},
+        "script": {"enum": ["Latn", "Cyrl"]},
+        "variant": {"enum": ["ekavian", "ijekavian", null]}
+      },
+      "oneOf": [
+        {"properties": {"language": {"const": "ru"}, "script": {"const": "Cyrl"}, "variant": {"const": null}}},
+        {"properties": {"language": {"const": "en"}, "script": {"const": "Latn"}, "variant": {"const": null}}},
+        {"properties": {"language": {"const": "sr"}, "script": {"enum": ["Latn", "Cyrl"]}, "variant": {"enum": ["ekavian", "ijekavian"]}}}
+      ]
+    },
+    "role": {"enum": ["pragmatist", "logician", "empath"]},
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "energy", "openness", "nerve", "sharpness",
+        "reasoning", "provocation", "attunement"
+      ],
+      "properties": {
+        "energy": {"type": "integer", "minimum": 1, "maximum": 10},
+        "openness": {"type": "integer", "minimum": 1, "maximum": 10},
+        "nerve": {"type": "integer", "minimum": 1, "maximum": 10},
+        "sharpness": {"type": "integer", "minimum": 1, "maximum": 10},
+        "reasoning": {"type": "integer", "minimum": 1, "maximum": 10},
+        "provocation": {"type": "integer", "minimum": 1, "maximum": 10},
+        "attunement": {"type": "integer", "minimum": 1, "maximum": 10}
+      }
+    },
+    "alignment": {
+      "enum": [
+        "lawful_good", "lawful_neutral", "lawful_evil",
+        "neutral_good", "true_neutral", "neutral_evil",
+        "chaotic_good", "chaotic_neutral", "chaotic_evil"
+      ]
+    },
+    "topic": {"type": "string", "minLength": 1, "maxLength": 48},
+    "text": {"type": "string", "x-min-words": 20, "x-max-words": 120},
+    "source_kind": {"enum": ["authored", "pilot"]},
+    "review_status": {"enum": ["draft", "reviewed", "approved", "rejected"]},
+    "real_person_based": {"const": false},
+    "machine_translated": {"const": false}
+  }
+}

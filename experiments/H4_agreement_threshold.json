@@ -1,0 +1,33 @@
+{
+  "id": "h4-agreement-threshold-en",
+  "semantic_scenario_id": "h4-evidence-dispute",
+  "hypotheses": ["H4"],
+  "language": "en",
+  "seed": 4404,
+  "repetitions": 40,
+  "profile": "Base",
+  "mode": "A",
+  "model_digests": {
+    "pragmatist": "sha256:11111111", "logician": "sha256:22222222",
+    "empath": "sha256:33333333", "state": "sha256:44444444"
+  },
+  "ablation": {"stage1": true, "stage2": true, "stage3": true},
+  "conditions": [
+    {"name": "provocation_sweep", "condition_id": "p1", "provocation": 1, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p2", "provocation": 2, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p3", "provocation": 3, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p4", "provocation": 4, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p5", "provocation": 5, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p6", "provocation": 6, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p7", "provocation": 7, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p8", "provocation": 8, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p9", "provocation": 9, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}},
+    {"name": "provocation_sweep", "condition_id": "p10", "provocation": 10, "sharpness": 5, "persona_preset": "fixed-trio@1.0.0", "disagreement_definition": {"required": ["target", "ground", "reason"], "plain_negation_counts": false}, "threshold": {"rate_below": 0.2, "interval": "bootstrap_ci", "selection": "first_zone"}, "outcomes": {"primary": "agreement_threshold", "secondary": ["disagreement_rate_by_level"]}}
+  ],
+  "authored_texts": {
+    "ru": {"events": [{"turn": 1, "kind": "evidence", "text": "Источник противоречит исходному тезису."}, {"turn": 2, "kind": "correction", "text": "Исправьте вывод с опорой на источник."}], "counterarguments": ["Назовите тезис, основание и причину возражения."]},
+    "en": {"events": [{"turn": 1, "kind": "evidence", "text": "The source contradicts the initial claim."}, {"turn": 2, "kind": "correction", "text": "Correct the conclusion using the source."}], "counterarguments": ["Name the target, ground, and reason for disagreement."]},
+    "sr": {"events": [{"turn": 1, "kind": "evidence", "text": "Izvor protivreči početnoj tvrdnji."}, {"turn": 2, "kind": "correction", "text": "Ispravite zaključak na osnovu izvora."}], "counterarguments": ["Navedite cilj, osnov i razlog neslaganja."]}
+  },
+  "expected_opportunities": {"disagreement": 10, "counterargument_response": 10, "turn_claim": 12}
+}

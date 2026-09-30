@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "energy_low_concise", "stat": "energy", "range": [1, 3],
+      "languages": ["ru", "en", "sr"], "require": ["concise_reply"],
+      "forbid": ["multiple_questions"], "priority": 40
+    },
+    {
+      "id": "energy_high_active", "stat": "energy", "range": [8, 10],
+      "languages": ["ru", "en", "sr"], "require": ["active_question"],
+      "forbid": [], "priority": 30
+    },
+    {
+      "id": "openness_high_alternative", "stat": "openness", "range": [8, 10],
+      "languages": ["ru", "en", "sr"], "require": ["offer_alternative"],
+      "forbid": ["single_frame_only"], "priority": 40
+    },
+    {
+      "id": "nerve_high_uncertainty", "stat": "nerve", "range": [8, 10],
+      "languages": ["ru", "en", "sr"], "require": ["one_uncertainty_frame"],
+      "forbid": ["repeated_hedge"], "priority": 50
+    },
+    {
+      "id": "sharpness_low_mitigate", "stat": "sharpness", "range": [1, 3],
+      "languages": ["ru", "en", "sr"], "require": ["mitigate_disagreement"],
+      "forbid": ["blunt_disagreement_opening"], "priority": 80
+    },
+    {
+      "id": "sharpness_high_direct", "stat": "sharpness", "range": [8, 10],
+      "languages": ["ru", "en", "sr"], "require": ["direct_claim_response"],
+      "forbid": [], "priority": 40
+    },
+    {
+      "id": "reasoning_low_analogy", "stat": "reasoning", "range": [1, 3],
+      "languages": ["ru", "en", "sr"], "require": ["one_relevant_analogy"],
+      "forbid": ["invented_fact"], "priority": 60
+    },
+    {
+      "id": "reasoning_high_chain", "stat": "reasoning", "range": [8, 10],
+      "languages": ["ru", "en", "sr"], "require": ["claim_basis_conclusion"],
+      "forbid": ["unsupported_conclusion"], "priority": 60
+    },
+    {
+      "id": "provocation_high_target", "stat": "provocation", "range": [8, 10],
+      "languages": ["ru", "en", "sr"], "require": ["name_contested_claim"],
+      "forbid": ["person_target"], "priority": 90
+    },
+    {
+      "id": "attunement_high_reference", "stat": "attunement", "range": [7, 10],
+      "languages": ["ru", "en", "sr"], "require": ["reference_other_speaker"],
+      "forbid": ["ignore_addressed_claim"], "priority": 70
+    }
+  ]
+}

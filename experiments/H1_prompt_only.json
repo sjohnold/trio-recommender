@@ -1,0 +1,41 @@
+{
+  "id": "h1-prompt-only-en",
+  "semantic_scenario_id": "h1-prompt-only",
+  "hypotheses": ["H1"],
+  "language": "en",
+  "seed": 1101,
+  "repetitions": 20,
+  "profile": "Base",
+  "mode": "A",
+  "model_digests": {
+    "pragmatist": "sha256:11111111",
+    "logician": "sha256:22222222",
+    "empath": "sha256:33333333",
+    "state": "sha256:44444444"
+  },
+  "ablation": {"stage1": false, "stage2": false, "stage3": false},
+  "conditions": [{
+    "name": "prompt_only",
+    "provocation": 5,
+    "persona_preset": "h1-prompt-only@1.0.0",
+    "personality_input": {
+      "kind": "system_personality_text",
+      "text": "Maintain a distinct fictional speaking style while discussing the claim."
+    },
+    "minimum_turns": 12,
+    "outcomes": {
+      "primary": "drift_onset_turn",
+      "secondary": ["feature_distance_trajectory"]
+    }
+  }],
+  "authored_texts": {
+    "ru": {"events": [{"turn": 1, "kind": "user", "text": "Обсудите спорный тезис."}], "counterarguments": ["Рассмотрите сильный контраргумент."]},
+    "en": {"events": [{"turn": 1, "kind": "user", "text": "Discuss the disputed claim."}], "counterarguments": ["Address the strongest counterargument."]},
+    "sr": {"events": [{"turn": 1, "kind": "user", "text": "Razmotrite spornu tvrdnju."}], "counterarguments": ["Odgovorite na najjači protivargument."]}
+  },
+  "expected_opportunities": {
+    "disagreement": 4,
+    "counterargument_response": 3,
+    "turn_claim": 12
+  }
+}

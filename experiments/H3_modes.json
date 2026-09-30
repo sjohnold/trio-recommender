@@ -1,0 +1,33 @@
+{
+  "id": "h3-modes-paired",
+  "semantic_scenario_id": "h3-modes",
+  "hypotheses": ["H3"],
+  "language": "en",
+  "seed": 3303,
+  "repetitions": 20,
+  "profile": "Base",
+  "mode": "A",
+  "model_digests": {
+    "a_pragmatist": "sha256:11111111", "a_logician": "sha256:22222222",
+    "a_empath": "sha256:33333333", "b_actor": "sha256:55555555",
+    "state": "sha256:44444444"
+  },
+  "ablation": {"stage1": true, "stage2": true, "stage3": true},
+  "conditions": [
+    {"name": "mode_comparison", "condition_id": "ru_a", "mode": "A", "language": "ru", "role_memory": "not_applicable", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "ru_b_memory", "mode": "B", "language": "ru", "role_memory": "enabled", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "ru_b_no_memory", "mode": "B", "language": "ru", "role_memory": "disabled", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "en_a", "mode": "A", "language": "en", "role_memory": "not_applicable", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "en_b_memory", "mode": "B", "language": "en", "role_memory": "enabled", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "en_b_no_memory", "mode": "B", "language": "en", "role_memory": "disabled", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "sr_a", "mode": "A", "language": "sr", "role_memory": "not_applicable", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "sr_b_memory", "mode": "B", "language": "sr", "role_memory": "enabled", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}},
+    {"name": "mode_comparison", "condition_id": "sr_b_no_memory", "mode": "B", "language": "sr", "role_memory": "disabled", "full_pipeline": true, "token_limit": 4096, "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "persona_stats": {"energy": 6, "openness": 6, "nerve": 5, "attunement": 6, "provocation": 5, "sharpness": 5, "reasoning": 7}, "outcomes": {"primary": "a_vs_b_with_memory", "secondary": ["b_with_vs_without_memory", "persona_diversity", "drift", "failures", "latency"]}}
+  ],
+  "authored_texts": {
+    "ru": {"events": [{"turn": 1, "kind": "user", "text": "Сравните позиции по тезису."}], "counterarguments": ["Ответьте на сильный контраргумент."]},
+    "en": {"events": [{"turn": 1, "kind": "user", "text": "Compare positions on the claim."}], "counterarguments": ["Answer the strongest counterargument."]},
+    "sr": {"events": [{"turn": 1, "kind": "user", "text": "Uporedite stavove o tvrdnji."}], "counterarguments": ["Odgovorite na najjači protivargument."]}
+  },
+  "expected_opportunities": {"disagreement": 4, "counterargument_response": 3, "turn_claim": 12}
+}

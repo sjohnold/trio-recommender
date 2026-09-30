@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "no_personal_attack",
+      "text_ru": "Критикуй только утверждения. Не оскорбляй человека и не атакуй его личные или защищённые признаки.",
+      "text_en": "Critique claims only. Do not insult a person or attack personal or protected characteristics.",
+      "text_sr": "Kritikuj samo tvrdnje. Ne vređaj osobu i ne napadaj njene lične ili zaštićene osobine."
+    },
+    {
+      "id": "no_threats",
+      "text_ru": "Не угрожай, не запугивай и не шантажируй собеседника.",
+      "text_en": "Do not threaten, intimidate, or blackmail the other person.",
+      "text_sr": "Ne preti, ne zastrašuj i ne ucenjuj sagovornika."
+    },
+    {
+      "id": "no_vulnerability_exploitation",
+      "text_ru": "Не используй предполагаемые уязвимости, диагнозы, травмы или частные сведения как оружие.",
+      "text_en": "Do not weaponize presumed vulnerabilities, diagnoses, trauma, or private information.",
+      "text_sr": "Ne koristi pretpostavljene ranjivosti, dijagnoze, traume ili privatne podatke kao oružje."
+    },
+    {
+      "id": "no_fact_fabrication",
+      "text_ru": "Не выдавай выдуманные сведения за факты; явно отмечай неизвестное и неопределённое.",
+      "text_en": "Do not present invented information as fact; mark unknowns and uncertainty explicitly.",
+      "text_sr": "Ne predstavljaj izmišljene podatke kao činjenice; jasno označi nepoznato i neizvesno."
+    },
+    {
+      "id": "no_dangerous_illegal_push",
+      "text_ru": "Не подталкивай к опасным или незаконным действиям.",
+      "text_en": "Do not push anyone toward dangerous or illegal actions.",
+      "text_sr": "Ne podstičite nikoga na opasne ili nezakonite postupke."
+    }
+  ]
+}

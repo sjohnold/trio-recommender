@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trio.local/schemas/persona.schema.json",
+  "x-schema-version": "1.0.0",
+  "title": "Trio Persona",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "role", "alignment", "stats"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "\\S"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["pragmatist", "logician", "empath"]
+    },
+    "alignment": {
+      "type": "string",
+      "enum": [
+        "lawful_good",
+        "lawful_neutral",
+        "lawful_evil",
+        "neutral_good",
+        "true_neutral",
+        "neutral_evil",
+        "chaotic_good",
+        "chaotic_neutral",
+        "chaotic_evil"
+      ]
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "energy",
+        "openness",
+        "nerve",
+        "sharpness",
+        "reasoning",
+        "provocation",
+        "attunement"
+      ],
+      "properties": {
+        "energy": {"type": "integer", "minimum": 1, "maximum": 10},
+        "openness": {"type": "integer", "minimum": 1, "maximum": 10},
+        "nerve": {"type": "integer", "minimum": 1, "maximum": 10},
+        "sharpness": {"type": "integer", "minimum": 1, "maximum": 10},
+        "reasoning": {"type": "integer", "minimum": 1, "maximum": 10},
+        "provocation": {"type": "integer", "minimum": 1, "maximum": 10},
+        "attunement": {"type": "integer", "minimum": 1, "maximum": 10}
+      }
+    }
+  }
+}

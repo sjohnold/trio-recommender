@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trio.local/schemas/dialogue_state.schema.json",
+  "x-schema-version": "1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tension", "trend", "relations", "topic_shift",
+    "user_signal", "suggested_next"
+  ],
+  "$defs": {
+    "unit_or_unknown": {
+      "oneOf": [
+        {"type": "number", "minimum": 0, "maximum": 1},
+        {"const": "unknown"}
+      ]
+    },
+    "signed_or_unknown": {
+      "oneOf": [
+        {"type": "number", "minimum": -1, "maximum": 1},
+        {"const": "unknown"}
+      ]
+    }
+  },
+  "properties": {
+    "tension": {"$ref": "#/$defs/unit_or_unknown"},
+    "trend": {"enum": ["rising", "stable", "falling", "unknown"]},
+    "relations": {
+      "type": "array",
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "target", "affinity", "confidence"],
+        "properties": {
+          "source": {
+            "enum": ["user", "pragmatist", "logician", "empath"]
+          },
+          "target": {
+            "enum": ["user", "pragmatist", "logician", "empath"]
+          },
+          "affinity": {"$ref": "#/$defs/signed_or_unknown"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "topic_shift": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["detected", "confidence"],
+      "properties": {
+        "detected": {
+          "oneOf": [{"type": "boolean"}, {"const": "unknown"}]
+        },
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "user_signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["valence", "arousal", "stance", "confidence"],
+      "properties": {
+        "valence": {"$ref": "#/$defs/signed_or_unknown"},
+        "arousal": {"$ref": "#/$defs/unit_or_unknown"},
+        "stance": {
+          "enum": ["agree", "disagree", "mixed", "neutral", "unknown"]
+        },
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "suggested_next": {
+      "enum": [
+        "pragmatist", "logician", "empath", "user", "none", "unknown"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "personas": [
+    {
+      "name": "Вера",
+      "role": "pragmatist",
+      "alignment": "lawful_neutral",
+      "stats": {
+        "energy": 7, "openness": 5, "nerve": 4, "sharpness": 7,
+        "reasoning": 8, "provocation": 7, "attunement": 6
+      }
+    },
+    {
+      "name": "Алексей",
+      "role": "logician",
+      "alignment": "lawful_good",
+      "stats": {
+        "energy": 4, "openness": 7, "nerve": 3, "sharpness": 6,
+        "reasoning": 10, "provocation": 6, "attunement": 6
+      }
+    },
+    {
+      "name": "Мира",
+      "role": "empath",
+      "alignment": "neutral_good",
+      "stats": {
+        "energy": 6, "openness": 7, "nerve": 6, "sharpness": 3,
+        "reasoning": 5, "provocation": 3, "attunement": 10
+      }
+    }
+  ]
+}

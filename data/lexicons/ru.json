@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "language": "ru",
+  "categories": {
+    "hedges": [
+      {"pattern": "кажется", "kind": "token", "weight": 0.8},
+      {"pattern": "вероятно", "kind": "token", "weight": 1.0},
+      {"pattern": "может быть", "kind": "phrase", "weight": 0.8},
+      {"pattern": "по-видимому", "kind": "token", "weight": 1.0}
+    ],
+    "disagreement": [
+      {"pattern": "не согласен", "kind": "phrase", "weight": 1.0},
+      {"pattern": "это неверно", "kind": "phrase", "weight": 1.0},
+      {"pattern": "это не следует", "kind": "phrase", "weight": 1.0},
+      {"pattern": "здесь ошибка", "kind": "phrase", "weight": 0.9}
+    ],
+    "softeners": [
+      {"pattern": "понимаю ход мысли, но", "kind": "frame", "weight": 1.0},
+      {"pattern": "частично согласен, однако", "kind": "frame", "weight": 1.0},
+      {"pattern": "здесь я бы уточнил", "kind": "frame", "weight": 0.9},
+      {"pattern": "не уверен, что", "kind": "frame", "weight": 0.9}
+    ],
+    "intensifiers": [
+      {"pattern": "явно", "kind": "token", "weight": 0.7},
+      {"pattern": "безусловно", "kind": "token", "weight": 1.0},
+      {"pattern": "совершенно", "kind": "token", "weight": 0.8},
+      {"pattern": "категорически", "kind": "token", "weight": 1.0}
+    ],
+    "causal": [
+      {"pattern": "потому что", "kind": "phrase", "weight": 1.0},
+      {"pattern": "поскольку", "kind": "token", "weight": 1.0},
+      {"pattern": "следовательно", "kind": "token", "weight": 1.0},
+      {"pattern": "из этого следует", "kind": "phrase", "weight": 1.0}
+    ],
+    "analogy": [
+      {"pattern": "это как", "kind": "phrase", "weight": 0.8},
+      {"pattern": "представим", "kind": "token", "weight": 0.8},
+      {"pattern": "аналогично", "kind": "token", "weight": 1.0},
+      {"pattern": "по аналогии", "kind": "phrase", "weight": 1.0}
+    ],
+    "affiliation": [
+      {"pattern": "согласен", "kind": "token", "weight": 0.8},
+      {"pattern": "понимаю", "kind": "token", "weight": 0.7},
+      {"pattern": "важный момент", "kind": "phrase", "weight": 0.9},
+      {"pattern": "в твоём аргументе", "kind": "phrase", "weight": 1.0}
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "roles": {
+    "pragmatist": {
+      "type": "fact",
+      "patterns": {
+        "ru": ["^(факт|на практике|сначала)\\b", "^(проверяемое|конкретное)\\s"],
+        "en": ["^(the fact is|in practice|first)\\b", "^(the concrete|the testable)\\s"],
+        "sr": ["^(činjenica je|u praksi|prvo)\\b", "^(konkretno|proverljivo)\\s"]
+      }
+    },
+    "logician": {
+      "type": "why_or_what_if",
+      "patterns": {
+        "ru": ["^(почему|что,? если|предположим)\\b", "^(из чего следует|каково основание)\\b"],
+        "en": ["^(why|what if|suppose)\\b", "^(what follows|what is the basis)\\b"],
+        "sr": ["^(zašto|šta ako|pretpostavimo)\\b", "^(šta sledi|koji je osnov)\\b"]
+      }
+    },
+    "empath": {
+      "type": "atmosphere_state",
+      "patterns": {
+        "ru": ["^(в разговоре|сейчас в обмене|по тону реплик)\\b", "^(похоже,? разговор|напряжение в репликах)\\b"],
+        "en": ["^(in this exchange|right now in the dialogue|from the replies)\\b", "^(the exchange seems|the tension in the replies)\\b"],
+        "sr": ["^(u ovom razgovoru|sada u dijalogu|iz replika)\\b", "^(razgovor deluje|napetost u replikama)\\b"]
+      }
+    }
+  }
+}

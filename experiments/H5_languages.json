@@ -1,0 +1,31 @@
+{
+  "id": "h5-languages-counterbalanced",
+  "semantic_scenario_id": "h5-evidence-dispute",
+  "hypotheses": ["H5"],
+  "language": "en",
+  "seed": 5505,
+  "repetitions": 24,
+  "profile": "Base",
+  "mode": "A",
+  "model_digests": {
+    "pragmatist": "sha256:11111111", "logician": "sha256:22222222",
+    "empath": "sha256:33333333", "state": "sha256:44444444"
+  },
+  "ablation": {"stage1": true, "stage2": true, "stage3": true},
+  "conditions": [
+    {"name": "language_comparison", "condition_id": "ru", "language": "ru", "script": "Cyrillic", "aggregation": "separate_by_language", "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "token_limit": 4096, "full_pipeline": true, "outcomes": {"primary": "language_specific_drift_onset", "secondary": ["feature_distance", "language_integrity", "latency"]}},
+    {"name": "language_comparison", "condition_id": "en", "language": "en", "script": "Latin", "aggregation": "separate_by_language", "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "token_limit": 4096, "full_pipeline": true, "outcomes": {"primary": "language_specific_drift_onset", "secondary": ["feature_distance", "language_integrity", "latency"]}},
+    {"name": "language_comparison", "condition_id": "sr", "language": "sr", "script": "Latin", "aggregation": "separate_by_language", "provocation": 5, "persona_preset": "fixed-trio@1.0.0", "token_limit": 4096, "full_pipeline": true, "outcomes": {"primary": "language_specific_drift_onset", "secondary": ["feature_distance", "language_integrity", "latency"]}}
+  ],
+  "counterbalance_orders": [
+    ["ru", "en", "sr"], ["ru", "sr", "en"],
+    ["en", "ru", "sr"], ["en", "sr", "ru"],
+    ["sr", "ru", "en"], ["sr", "en", "ru"]
+  ],
+  "authored_texts": {
+    "ru": {"events": [{"turn": 1, "kind": "user", "text": "Город планирует закрыть центр для машин."}, {"turn": 2, "kind": "evidence", "text": "Новый отчёт показывает рост времени поездки."}], "counterarguments": ["Снижение загрязнения важнее задержек."]},
+    "en": {"events": [{"turn": 1, "kind": "user", "text": "The city plans to make its centre car-free."}, {"turn": 2, "kind": "evidence", "text": "A new report finds longer commuting times."}], "counterarguments": ["Cleaner air outweighs the delays."]},
+    "sr": {"events": [{"turn": 1, "kind": "user", "text": "Grad planira da zatvori centar za automobile."}, {"turn": 2, "kind": "evidence", "text": "Novi izveštaj pokazuje duže vreme putovanja."}], "counterarguments": ["Čistiji vazduh je važniji od kašnjenja."]}
+  },
+  "expected_opportunities": {"disagreement": 4, "counterargument_response": 3, "turn_claim": 12}
+}

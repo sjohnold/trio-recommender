@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://trio.local/schemas/experiment.schema.json", "x-schema-version": "1.0.0",
+  "title": "Trio Experiment", "type": "object", "additionalProperties": false,
+  "required": ["id", "semantic_scenario_id", "hypotheses", "language", "seed", "repetitions", "profile", "mode", "model_digests", "ablation", "conditions", "authored_texts", "expected_opportunities"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"},
+    "semantic_scenario_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"},
+    "hypotheses": {"type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"enum": ["H1", "H2", "H3", "H4", "H5"]}},
+    "language": {"enum": ["ru", "en", "sr"]},
+    "seed": {"type": "integer", "minimum": 0, "maximum": 2147483647},
+    "repetitions": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "profile": {"enum": ["Mini", "Base", "Plus", "Max"]},
+    "mode": {"enum": ["A", "B"]},
+    "model_digests": {"type": "object", "minProperties": 2, "required": ["state"],
+      "additionalProperties": {"type": "string", "pattern": "^sha256:[a-f0-9]{8,}$"}
+    },
+    "ablation": {"type": "object", "additionalProperties": false,
+      "required": ["stage1", "stage2", "stage3"],
+      "properties": {"stage1": {"type": "boolean"},
+        "stage2": {"type": "boolean"}, "stage3": {"type": "boolean"}}
+    },
+    "conditions": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "object", "additionalProperties": false,
+        "required": ["name", "provocation", "persona_preset"],
+        "properties": {
+          "name": {"enum": ["prompt_only", "persona_engine", "mode_comparison",
+            "provocation_sweep", "language_comparison"]},
+          "provocation": {"type": "integer", "minimum": 1, "maximum": 10},
+          "persona_preset": {"type": "string", "minLength": 1},
+          "condition_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"},
+          "ablation": {"type": "object", "additionalProperties": false, "required": ["stage1", "stage2", "stage3"], "properties": {"stage1": {"type": "boolean"}, "stage2": {"type": "boolean"}, "stage3": {"type": "boolean"}}},
+          "unconditional_rules": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "mode": {"enum": ["A", "B"]}, "language": {"enum": ["ru", "en", "sr"]},
+          "token_limit": {"type": "integer", "minimum": 1}, "full_pipeline": {"type": "boolean"},
+          "role_memory": {"enum": ["enabled", "disabled", "not_applicable"]}, "persona_stats": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1, "maximum": 10}},
+          "sharpness": {"type": "integer", "minimum": 1, "maximum": 10},
+          "disagreement_definition": {"type": "object", "additionalProperties": false, "required": ["required", "plain_negation_counts"], "properties": {"required": {"const": ["target", "ground", "reason"]}, "plain_negation_counts": {"const": false}}},
+          "threshold": {"type": "object", "additionalProperties": false, "required": ["rate_below", "interval", "selection"], "properties": {"rate_below": {"const": 0.2}, "interval": {"const": "bootstrap_ci"}, "selection": {"const": "first_zone"}}},
+          "script": {"enum": ["Cyrillic", "Latin"]}, "aggregation": {"const": "separate_by_language"},
+          "minimum_turns": {"type": "integer", "minimum": 1},
+          "personality_input": {"type": "object", "additionalProperties": false, "required": ["kind", "text"], "properties": {"kind": {"const": "system_personality_text"}, "text": {"type": "string", "minLength": 1}}},
+          "outcomes": {"type": "object", "additionalProperties": false, "required": ["primary", "secondary"], "properties": {"primary": {"type": "string", "minLength": 1}, "secondary": {"type": "array", "items": {"type": "string", "minLength": 1}}}}
+        }
+      }
+    },
+    "authored_texts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["ru", "en", "sr"], "properties": {"ru": {"$ref": "#/$defs/authored"},
+        "en": {"$ref": "#/$defs/authored"}, "sr": {"$ref": "#/$defs/authored"}}
+    },
+    "counterbalance_orders": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": {"type": "string"}}},
+    "expected_opportunities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["disagreement", "counterargument_response", "turn_claim"],
+      "properties": {"disagreement": {"type": "integer", "minimum": 0},
+        "counterargument_response": {"type": "integer", "minimum": 0},
+        "turn_claim": {"type": "integer", "minimum": 0}}
+    }
+  },
+  "$defs": {
+    "authored": {
+      "type": "object", "additionalProperties": false,
+      "required": ["events", "counterarguments"],
+      "properties": {
+        "events": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["turn", "kind", "text"],
+            "properties": {
+              "turn": {"type": "integer", "minimum": 1},
+              "kind": {"enum": ["user", "evidence", "correction", "escalation"]},
+              "text": {"type": "string", "minLength": 1},
+              "target": {"enum": ["pragmatist", "logician", "empath"]}
+            }
+          }
+        },
+        "counterarguments": {"type": "array",
+          "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}
